@@ -1,13 +1,18 @@
-ion-content{
-    
-}
+ion-content {}
 
 .centralizar {
-    background: #fff url('../imagens/background.png') no-repeat center/cover fixed;
-    
+    background: #fff url('../imagens/background.png') no-repeat right/cover fixed;
+    top: 0 !important;
     height: 100% !important;
     width: 100% !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
+}
+
+@media(min-height:1024px) {
+
+    .centralizar {
+        background: #fff url('../imagens/background.png') no-repeat;
+    }
 }

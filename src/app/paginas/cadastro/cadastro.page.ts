@@ -48,6 +48,10 @@ export class CadastroPage implements OnInit {
 
   ngOnInit() { }
 
+  ngOnDestroy() {
+    if (this.userSubscription.unsubscribe) this.userSubscription.unsubscribe();
+  }
+
   loadUser() {
     this.userSubscription = this.userService.getUser(this.userId).subscribe(data => {
       this.user = data;
@@ -59,7 +63,14 @@ export class CadastroPage implements OnInit {
 
     this.user.userId = (await this.authService.getAuth().currentUser).uid;
     if (this.userId) {
-
+      try {
+        await this.userService.updateUser(this.userId, this.user);
+        await this.loading.dismiss();
+        this.navCtrl.navigateBack('/home');
+      } catch (error) {
+        this.presentToast('Erro ao tentar salvar.');
+        this.loading.dismiss();
+      }
     } else {
       this.user.criadoEm = new Date().getTime();
       try {

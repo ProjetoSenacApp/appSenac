@@ -33,13 +33,10 @@ export class UserService {
   }
 
   updateUser(id: string, user: User) {
-
+    return this.usersCollection.doc<User>(id).update(user);
   }
 
   deleteUser(id: string) {
-
+    return this.usersCollection.doc(id).delete();
   }
-
-
-
 }
