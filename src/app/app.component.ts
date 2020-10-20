@@ -12,7 +12,7 @@ export class AppComponent implements OnInit {
   public selectedIndex = 0;
   public appPages = [
     {
-      title: 'Logar',
+      title: 'Início',
       url: '/login',
       icon: 'home'
     },

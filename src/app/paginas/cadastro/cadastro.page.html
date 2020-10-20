@@ -1,43 +1,50 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
     <ion-title>Cadastro</ion-title>
+
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-    <label>Todos os campos são obrigatorios*</label>
+  <label>Todos os campos são obrigatorios*</label>
   <form [formGroup]="fGroup">
     <ion-item>
       <ion-label position="floating">Nome Completo</ion-label>
-      <ion-input type="text" formControlName="nome" placeholder="Digite seu Nome"[(ngModel)]="user.nome"></ion-input>
+      <ion-input type="text" formControlName="nome" placeholder="Digite seu Nome" [(ngModel)]="user.nome"></ion-input>
     </ion-item>
 
-  <ion-item>
-    <ion-label position="floating">Email</ion-label>
-    <ion-input type="email" formControlName="email" placeholder="email@example.com" [(ngModel)]="user.email"></ion-input>
-  </ion-item>
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input type="email" formControlName="email" placeholder="email@example.com" [(ngModel)]="user.email">
+      </ion-input>
+    </ion-item>
 
-  <ion-item>
-    <ion-label position="floating">Perfil</ion-label>
-    <ion-input type="text" formControlName="perfil" placeholder="Example: Estudante, Administrador, Coordenador e Instrutor" [(ngModel)]="user.perfil"></ion-input>
-  </ion-item>
+    <ion-item>
+      <ion-label position="floating">Perfil</ion-label>
+      <ion-input type="text" formControlName="perfil"
+        placeholder="Example: Estudante, Administrador, Coordenador e Instrutor" [(ngModel)]="user.perfil"></ion-input>
+    </ion-item>
 
-  <ion-item>
-    <ion-label position="floating">Codigo</ion-label>
-    <ion-input type="number" formControlName="codigo" placeholder="Codigo de acesso" [(ngModel)]="user.codigo"></ion-input>
-   <!-- <div *ngIf="fGroup.controls.codigo.errors">
+    <ion-item>
+      <ion-label position="floating">Codigo</ion-label>
+      <ion-input type="number" formControlName="codigo" placeholder="Codigo de acesso" [(ngModel)]="user.codigo">
+      </ion-input>
+      <!-- <div *ngIf="fGroup.controls.codigo.errors">
        <p *ngIf="fGroup.controls.curso.errors.required">Esse campo é obrigatório!</p>
     </div> -->
-  </ion-item>
-  
+    </ion-item>
+
   </form>
 
-  </ion-content>
+</ion-content>
 
 <ion-footer>
-    <ion-toolbar>
-        <ion-button (click)="cadastrarUsuario()" expand="full" [disabled]="!fGroup.valid">
-          Enviar
-        </ion-button>
-    </ion-toolbar>
+  <ion-toolbar>
+    <ion-button (click)="cadastrarUsuario()" expand="full" [disabled]="!fGroup.valid">
+      Enviar
+    </ion-button>
+  </ion-toolbar>
 </ion-footer>

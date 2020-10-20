@@ -22,13 +22,14 @@ export class HomePage implements OnInit {
     public router: Router,
     private toastCtrl: ToastController,
     private loadingCtrl: LoadingController,
-  ) {
+  )
+   {
     this.userSubscription = this.userService.getUsers().subscribe(data => {
       this.users = data;
     });
   }
 
-  ngOnInit() {
+  ngOnInit() {3
   }
 
   ngOnDestroy() {
